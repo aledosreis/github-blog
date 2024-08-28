@@ -1,4 +1,5 @@
 import headerImg from './assets/headerImg.png'
+import { CardPost } from './components/CardPost'
 import styles from './index.module.css'
 
 export function Home() {
@@ -37,14 +38,7 @@ export function Home() {
 
           {Array.from({length: 6}).map((_, index) => {
             return (
-              <div key={index} className={styles.cardPost}>
-                <div className={styles.cardHeader}>
-                  <strong>JavaScript data types and data structures</strong>
-                  <span>Há 1 dia</span>
-                </div>
-                
-                <p>Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.</p>
-              </div>
+              <CardPost key={index} />
             )
           })}
 

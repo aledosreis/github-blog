@@ -1,0 +1,30 @@
+.cardPost {
+  background-color: var(--base-post);
+  padding: 2rem;
+}
+
+.cardPost p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-top: 1.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardHeader strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--base-title);
+  width: 70%;
+}
+
+.cardHeader span {
+  font-size: 0.875rem;
+  color: var(--base-span);
+}
