@@ -1,13 +1,11 @@
-import headerImg from './assets/headerImg.png'
 import { CardPost } from './components/CardPost'
+import { Header } from './components/Header'
 import styles from './index.module.css'
 
 export function Home() {
   return (
     <div>
-      <div className={styles.headerContainer}>
-        <img src={headerImg} />
-      </div>
+      <Header />
 
       <div className={styles.pageContent}>
 
@@ -44,7 +42,6 @@ export function Home() {
 
         </div>
       </div>
-
 
     </div>
   )
