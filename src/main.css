@@ -24,4 +24,9 @@ body {
   font-weight: 400;
   background-color: var(--base-background);
   font-size: 1rem;
+  color: var(--base-text)
+}
+
+span, strong {
+  line-height: 160%;
 }

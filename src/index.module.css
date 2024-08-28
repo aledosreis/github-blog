@@ -1,0 +1,140 @@
+/* Header */
+.headerContainer {
+  width: 100vw;
+  height: 18.5rem;
+}
+
+.headerContainer img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Page Content */
+.pageContent {
+  margin: auto;
+  width: 54rem;
+  margin-bottom: 14.625rem;
+}
+
+/* Profile */
+.profile {
+  background-color: var(--base-profile);
+  display: flex;
+  padding: 2.5rem 2rem;
+  gap: 2rem;
+  transform: translateY(-40%);
+}
+
+.profile > img {
+  width: 9.25rem;
+  height: 9.25rem;
+}
+
+.profileInfo {
+  margin-top: 0.5rem;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.profileHeader h1 {
+  font-size: 1.5rem;
+  line-height: 130%;
+  font-weight: 700;
+  color: var(--base-title);
+}
+
+.profileHeader a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.profileFooter {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.profileFooter span {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--base-subtitle);
+}
+
+/* Page Header */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageHeader :first-child {
+  color: var(--base-subtitle);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.pageHeader :last-child {
+  font-size: 0.875rem;
+  color: var(--base-span);
+}
+
+/* Search Input */
+.searchInput {
+  background-color: var(--base-input);
+  padding: 1rem 0.75rem;
+  border-radius: 6px;
+  width: 100%;
+  border: 1px solid var(--base-border);
+  margin-top: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.searchInput::placeholder {
+  color: var(--base-label);
+}
+
+/* Posts */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.cardPost {
+  background-color: var(--base-post);
+  padding: 2rem;
+}
+
+.cardPost p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin-top: 1.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardHeader strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--base-title);
+  width: 70%;
+}
+
+.cardHeader span {
+  font-size: 0.875rem;
+  color: var(--base-span);
+}
