@@ -2,22 +2,21 @@ import styles from './CardPost.module.css'
 
 type CardPostProps = {
   route: string
+  title: string
+  body: string | null
+  date: string
 }
 
-export function CardPost({route}: CardPostProps) {
+export function CardPost({route, title, body, date}: CardPostProps) {
   return (
     <a href={route} className={styles.cardPost}>
       <div className={styles.cardHeader}>
-        <strong>JavaScript data types and data structures</strong>
-        <span>Há 1 dia</span>
+        <strong>{title}</strong>
+        <span>{date}</span>
       </div>
 
       <p>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn.
+        {body || "Não informado"}
       </p>
     </a>
   );

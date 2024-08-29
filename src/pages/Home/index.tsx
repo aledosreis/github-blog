@@ -12,18 +12,34 @@ import { GithubUser } from "../../@types/githubUser";
 import { api } from "../../lib/axios";
 
 import styles from "./index.module.css";
+import { Issue } from "../../@types/githubIssues";
 
 export function Home() {
-  const [userData, setUserData] = useState<GithubUser>()
+  const [userData, setUserData] = useState<GithubUser>();
+  const [posts, setPosts] = useState<Issue[]>([]);
+  // const [searchText, setSearchText] = useState<string>("");
 
   async function fetchUserData() {
-    const response = await api.get('users/aledosreis')
-    setUserData(response.data)
+    const response = await api.get("users/aledosreis");
+    setUserData(response.data);
+  }
+
+  async function fetchPosts(search?: string) {
+    const response = await api.get("search/issues", {
+      params: {
+        q: search
+          ? `${search}%20repo:rocketseat-education/reactjs-github-blog-challenge`
+          : "repo:rocketseat-education/reactjs-github-blog-challenge",
+      },
+    });
+
+    setPosts(response.data.items);
   }
 
   useEffect(() => {
-    fetchUserData()
-  }, [])
+    fetchUserData();
+    fetchPosts();
+  }, []);
 
   return (
     <>
@@ -37,9 +53,7 @@ export function Home() {
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
           </div>
-          <p>
-            {userData?.bio || "Descrição do autor não informada"}
-          </p>
+          <p>{userData?.bio || "Descrição do autor não informada"}</p>
           <div className={styles.profileFooter}>
             <span>
               <FontAwesomeIcon icon={faGithub} />
@@ -70,8 +84,17 @@ export function Home() {
         />
 
         <div className={styles.posts}>
-          {Array.from({ length: 6 }).map((_, index) => {
-            return <CardPost key={index} route={`/post/${index}`} />;
+          {posts.map((post) => {
+            console.log(post);
+            return (
+              <CardPost
+                key={post.number}
+                route={`/post/${post.number}`}
+                title={post.title}
+                body={post.body}
+                date={post.created_at}
+              />
+            );
           })}
         </div>
       </div>
