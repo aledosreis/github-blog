@@ -1,10 +1,14 @@
 import styles from './CardPost.module.css'
 
-export function CardPost() {
+type CardPostProps = {
+  route: string
+}
+
+export function CardPost({route}: CardPostProps) {
   return (
     <div className={styles.cardPost}>
       <div className={styles.cardHeader}>
-        <strong>JavaScript data types and data structures</strong>
+        <a href={route}>JavaScript data types and data structures</a>
         <span>Há 1 dia</span>
       </div>
 

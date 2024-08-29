@@ -17,7 +17,7 @@
   justify-content: space-between;
 }
 
-.cardHeader strong {
+.cardHeader a {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--base-title);

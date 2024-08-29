@@ -38,7 +38,7 @@ export function Home() {
 
         <div className={styles.posts}>
           {Array.from({ length: 6 }).map((_, index) => {
-            return <CardPost key={index} />;
+            return <CardPost key={index} route={`/post/${index}`} />;
           })}
         </div>
       </div>
