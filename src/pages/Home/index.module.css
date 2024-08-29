@@ -37,6 +37,11 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  border-bottom: 1px solid transparent;
+}
+
+.profileHeader a:hover {
+  border-bottom: 1px solid var(--blue);
 }
 
 .profileFooter {

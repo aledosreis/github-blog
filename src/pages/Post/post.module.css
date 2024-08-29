@@ -27,6 +27,11 @@
   font-size: 0.75rem;
   font-weight: 700;
   align-items: center;
+  border-bottom: 1px solid transparent;
+}
+
+.postActions a:hover {
+  border-bottom: 1px solid var(--blue);
 }
 
 .postMetrics {
