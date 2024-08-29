@@ -1,6 +1,5 @@
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardPost } from "../../components/CardPost";
-import styles from "./index.module.css";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowUpRightFromSquare,
@@ -8,35 +7,51 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { CardPost } from "../../components/CardPost";
+import { GithubUser } from "../../@types/githubUser";
+import { api } from "../../lib/axios";
+
+import styles from "./index.module.css";
+
 export function Home() {
+  const [userData, setUserData] = useState<GithubUser>()
+
+  async function fetchUserData() {
+    const response = await api.get('users/aledosreis')
+    setUserData(response.data)
+  }
+
+  useEffect(() => {
+    fetchUserData()
+  }, [])
+
   return (
     <>
       <div className={styles.profile}>
-        <img src="https://github.com/aledosreis.png" />
+        <img src={userData?.avatar_url} />
         <div className={styles.profileInfo}>
           <div className={styles.profileHeader}>
-            <h1>Alessandro Reis</h1>
+            <h1>{userData?.name}</h1>
             <a href="https://github.com/aledosreis">
               GITHUB
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
           </div>
           <p>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
+            {userData?.bio || "Descrição do autor não informada"}
           </p>
           <div className={styles.profileFooter}>
             <span>
               <FontAwesomeIcon icon={faGithub} />
-              aledosreis
+              {userData?.login}
             </span>
             <span>
               <FontAwesomeIcon icon={faBuilding} />
-              DXC Technology
+              {userData?.company || "Não informado"}
             </span>
             <span>
-              <FontAwesomeIcon icon={faUserGroup} />0 seguidores
+              <FontAwesomeIcon icon={faUserGroup} />
+              {userData?.followers} seguidores
             </span>
           </div>
         </div>
