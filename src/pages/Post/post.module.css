@@ -1,0 +1,40 @@
+/* PostInfo */
+.postInfo {
+  background-color: var(--base-profile);
+  padding: 2rem;
+  transform: translateY(-53%);
+  border-radius: 10px;
+}
+
+.postInfo h1 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--base-title);
+  line-height: 130%;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.postActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postActions a {
+  color: var(--blue);
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.postMetrics {
+  display: flex;
+  gap: 2rem;
+}
+
+.postMetrics span {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--base-span);
+}
