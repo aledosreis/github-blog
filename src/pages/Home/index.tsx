@@ -1,5 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CardPost } from "../../components/CardPost";
 import styles from "./index.module.css";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
 
 export function Home() {
   return (
@@ -9,7 +16,10 @@ export function Home() {
         <div className={styles.profileInfo}>
           <div className={styles.profileHeader}>
             <h1>Alessandro Reis</h1>
-            <a href="https://github.com/aledosreis">GITHUB</a>
+            <a href="https://github.com/aledosreis">
+              GITHUB
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </a>
           </div>
           <p>
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
@@ -17,9 +27,17 @@ export function Home() {
             volutpat pulvinar vel mass.
           </p>
           <div className={styles.profileFooter}>
-            <span>aledosreis</span>
-            <span>DXC Technology</span>
-            <span>0 seguidores</span>
+            <span>
+              <FontAwesomeIcon icon={faGithub} />
+              aledosreis
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faBuilding} />
+              DXC Technology
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faUserGroup} />0 seguidores
+            </span>
           </div>
         </div>
       </div>
