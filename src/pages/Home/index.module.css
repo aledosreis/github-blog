@@ -84,6 +84,11 @@
   border: 1px solid var(--base-border);
   margin-top: 0.75rem;
   margin-bottom: 3rem;
+  color: var(--base-text);
+}
+
+.searchInput:focus {
+  outline: 1px solid var(--blue);
 }
 
 .searchInput::placeholder {

@@ -1,6 +1,12 @@
 .cardPost {
   background-color: var(--base-post);
   padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid transparent
+}
+
+.cardPost:hover {
+  border: 2px solid var(--base-label)
 }
 
 .cardPost p {
@@ -10,6 +16,7 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
   margin-top: 1.25rem;
+  color: var(--base-text)
 }
 
 .cardHeader {
@@ -17,7 +24,7 @@
   justify-content: space-between;
 }
 
-.cardHeader a {
+.cardHeader strong {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--base-title);

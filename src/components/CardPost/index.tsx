@@ -6,9 +6,9 @@ type CardPostProps = {
 
 export function CardPost({route}: CardPostProps) {
   return (
-    <div className={styles.cardPost}>
+    <a href={route} className={styles.cardPost}>
       <div className={styles.cardHeader}>
-        <a href={route}>JavaScript data types and data structures</a>
+        <strong>JavaScript data types and data structures</strong>
         <span>Há 1 dia</span>
       </div>
 
@@ -19,6 +19,6 @@ export function CardPost({route}: CardPostProps) {
         they have. These can be used to build other data structures. Wherever
         possible, comparisons with other languages are drawn.
       </p>
-    </div>
+    </a>
   );
 }
