@@ -74,7 +74,7 @@ export function Home() {
       <div className={styles.homeContent}>
         <div className={styles.pageHeader}>
           <span>Publicações</span>
-          <span>6 publicações</span>
+          <span>{posts.length} publicações</span>
         </div>
 
         <input
