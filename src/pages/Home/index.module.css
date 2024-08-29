@@ -69,8 +69,7 @@
 
 /* Home Content */
 .homeContent {
-  transform: translateY(-7.7%);
-  margin-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 
 /* Page Header */
@@ -117,5 +116,4 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  padding-bottom: 14.625rem;
 }
