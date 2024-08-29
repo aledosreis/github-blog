@@ -6,4 +6,5 @@
 .pageContent {
   margin: auto;
   width: 54rem;
+  transform: translateY(-2.5%);
 }

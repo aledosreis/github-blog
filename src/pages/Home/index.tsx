@@ -85,7 +85,6 @@ export function Home() {
 
         <div className={styles.posts}>
           {posts.map((post) => {
-            console.log(post);
             return (
               <CardPost
                 key={post.number}

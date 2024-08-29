@@ -1,8 +1,9 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import styles from "./post.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
@@ -12,19 +13,34 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const markdown = `**Programming languages all have built-in data structures, but these often differ from one language to another.** This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.\n
+import { formatDistanceToNow } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
-[Dynamic typing](#)\n
-JavaScript is a loosely typed and dynamic language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:\n
+import { Issue } from "../../@types/githubIssues";
+import { api } from "../../lib/axios";
 
-~~~javascript
-let foo = 42;   // foo is now a number
-foo = 'bar';    // foo is now a string
-foo = true;     // foo is now a boolean
-~~~
-`;
+import styles from "./post.module.css";
 
 export function Post() {
+  const { postId } = useParams();
+
+  const [post, setPost] = useState<Issue>();
+
+  async function fetchPost() {
+    const response = await api.get(
+      `repos/rocketseat-education/reactjs-github-blog-challenge/issues/${postId}`
+    );
+    setPost(response.data);
+  }
+
+  useEffect(() => {
+    fetchPost();
+  }, []);
+
+  if (!post) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <>
       <div className={styles.postInfo}>
@@ -33,30 +49,34 @@ export function Post() {
             <FontAwesomeIcon icon={faChevronLeft} />
             VOLTAR
           </a>
-          <a href="https://github.com/aledosreis">
+          <a href={post.html_url} target="_blank">
             VER NO GITHUB
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </div>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{post.title}</h1>
         <div className={styles.postMetrics}>
           <span>
             <FontAwesomeIcon icon={faGithub} />
-            aledosreis
+            {post.user.login}
           </span>
           <span>
             <FontAwesomeIcon icon={faCalendarDay} />
-            Há 1 dia
+            {formatDistanceToNow(post.created_at, {
+              locale: ptBR,
+              addSuffix: true,
+            })}
           </span>
           <span>
-            <FontAwesomeIcon icon={faComment} />5 comentários
+            <FontAwesomeIcon icon={faComment} />
+            {post.comments} comentários
           </span>
         </div>
       </div>
 
       <Markdown
         className={styles.postContent}
-        children={markdown}
+        children={post.body}
         components={{
           code(props) {
             const { children, className, ...rest } = props;

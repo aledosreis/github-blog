@@ -2,7 +2,7 @@
 .postInfo {
   background-color: var(--base-profile);
   padding: 2rem;
-  transform: translateY(-53%);
+  /* transform: translateY(-53%); */
   border-radius: 10px;
 }
 
@@ -47,7 +47,6 @@
 }
 
 .postContent {
-  transform: translateY(-25%);
   padding: 2rem 2.5rem;
   color: var(--base-text);
 }
@@ -59,4 +58,8 @@
 
 .postContent pre {
   margin-top: 1.5rem;
+}
+
+.postContent img {
+  width: 100%;
 }
