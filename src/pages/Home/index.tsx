@@ -24,21 +24,23 @@ export function Home() {
         </div>
       </div>
 
-      <div className={styles.pageHeader}>
-        <span>Publicações</span>
-        <span>6 publicações</span>
-      </div>
+      <div className={styles.homeContent}>
+        <div className={styles.pageHeader}>
+          <span>Publicações</span>
+          <span>6 publicações</span>
+        </div>
 
-      <input
-        className={styles.searchInput}
-        type="text"
-        placeholder="Buscar conteúdo"
-      />
+        <input
+          className={styles.searchInput}
+          type="text"
+          placeholder="Buscar conteúdo"
+        />
 
-      <div className={styles.posts}>
-        {Array.from({ length: 6 }).map((_, index) => {
-          return <CardPost key={index} />;
-        })}
+        <div className={styles.posts}>
+          {Array.from({ length: 6 }).map((_, index) => {
+            return <CardPost key={index} />;
+          })}
+        </div>
       </div>
     </>
   );
