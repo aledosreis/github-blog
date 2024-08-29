@@ -1,4 +1,7 @@
 import Markdown from "react-markdown";
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism'
+
 import styles from "./post.module.css";
 
 const markdown = `**Programming languages all have built-in data structures, but these often differ from one language to another.** This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.\n
@@ -8,7 +11,7 @@ JavaScript is a loosely typed and dynamic language. Variables in JavaScript are 
 
 ~~~javascript
 let foo = 42;   // foo is now a number
-foo = ‘bar’;    // foo is now a string
+foo = 'bar';    // foo is now a string
 foo = true;     // foo is now a boolean
 ~~~
 `
@@ -29,9 +32,29 @@ export function Post() {
         </div>
       </div>
 
-      <Markdown className={styles.postContent}>
-        {markdown}
-      </Markdown>
+      <Markdown
+        className={styles.postContent}
+        children={markdown}
+        components={{
+          code(props) {
+            const {children, className, ...rest} = props
+            const match = /language-(\w+)/.exec(className || '')
+            return match ? (
+              <SyntaxHighlighter
+              PreTag="div"
+              children={String(children).replace(/\n$/, '')}
+              language={match[1]}
+              style={dracula}
+              />
+            ) : (
+              <code {...rest} className={className}>
+                {children}
+              </code>
+            )
+          }
+        }}
+      />
     </>
   );
 }
+

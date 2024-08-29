@@ -40,7 +40,7 @@
 }
 
 .postContent {
-  transform: translateY(-30%);
+  transform: translateY(-25%);
   padding: 2rem 2.5rem;
   color: var(--base-text);
 }
@@ -48,4 +48,8 @@
 .postContent a {
   color: var(--blue);
   text-decoration: underline;
+}
+
+.postContent pre {
+  margin-top: 1.5rem;
 }
