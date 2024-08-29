@@ -1,12 +1,9 @@
 import { CardPost } from '../../components/CardPost'
-import { Header } from '../../components/Header'
 import styles from './index.module.css'
 
 export function Home() {
   return (
-    <div>
-      <Header />
-
+    <>
       <div className={styles.pageContent}>
 
         <div className={styles.profile}>
@@ -42,7 +39,6 @@ export function Home() {
 
         </div>
       </div>
-
-    </div>
+    </>
   )
 }
