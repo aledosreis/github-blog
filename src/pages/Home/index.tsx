@@ -48,7 +48,7 @@ export function Home() {
         <div className={styles.profileInfo}>
           <div className={styles.profileHeader}>
             <h1>{userData?.name}</h1>
-            <a href="https://github.com/aledosreis">
+            <a href="https://github.com/aledosreis" target="_blank">
               GITHUB
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </a>
