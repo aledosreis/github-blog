@@ -2,11 +2,12 @@
   background-color: var(--base-post);
   padding: 2rem;
   border-radius: 10px;
-  border: 2px solid transparent
+  border: 2px solid transparent;
+  width: 26rem;
 }
 
 .cardPost:hover {
-  border: 2px solid var(--base-label)
+  border: 2px solid var(--base-label);
 }
 
 .cardPost p {
@@ -16,7 +17,8 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
   margin-top: 1.25rem;
-  color: var(--base-text)
+  color: var(--base-text);
+  height: 6rem;
 }
 
 .cardHeader {
