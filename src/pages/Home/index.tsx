@@ -1,5 +1,5 @@
-import { CardPost } from './components/CardPost'
-import { Header } from './components/Header'
+import { CardPost } from '../../components/CardPost'
+import { Header } from '../../components/Header'
 import styles from './index.module.css'
 
 export function Home() {
