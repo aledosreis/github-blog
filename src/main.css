@@ -27,6 +27,10 @@ body {
   color: var(--base-text)
 }
 
+a {
+  text-decoration: none;
+}
+
 span, strong {
   line-height: 160%;
 }

@@ -38,7 +38,6 @@
 
 .profileHeader a {
   color: var(--blue);
-  text-decoration: none;
   font-weight: 700;
   font-size: 0.75rem;
   display: flex;
