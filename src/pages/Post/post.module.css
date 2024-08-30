@@ -2,7 +2,6 @@
 .postInfo {
   background-color: var(--base-profile);
   padding: 2rem;
-  /* transform: translateY(-53%); */
   border-radius: 10px;
 }
 

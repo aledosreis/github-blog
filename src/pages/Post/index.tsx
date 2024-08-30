@@ -26,16 +26,16 @@ export function Post() {
 
   const [post, setPost] = useState<Issue>();
 
-  async function fetchPost() {
-    const response = await api.get(
-      `repos/aledosreis/github-blog/issues/${postId}`
-    );
-    setPost(response.data);
-  }
-
   useEffect(() => {
+    async function fetchPost() {
+      const response = await api.get(
+        `repos/aledosreis/github-blog/issues/${postId}`
+      );
+      setPost(response.data);
+    }
+
     fetchPost();
-  }, []);
+  }, [postId]);
 
   if (!post) {
     return <h1>Loading...</h1>
