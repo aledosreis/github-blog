@@ -4,7 +4,6 @@
   display: flex;
   padding: 2.5rem 2rem;
   gap: 2rem;
-  /* transform: translateY(-40%); */
   border-radius: 10px;
 }
 
@@ -67,17 +66,12 @@
   align-items: center;
 }
 
-/* Home Content */
-.homeContent {
-  padding-bottom: 4.5rem;
-  margin-top: 4.5rem;
-}
-
 /* Page Header */
 .pageHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 4.5rem;
 
 }
 
@@ -117,4 +111,5 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  padding-bottom: 4.5rem;
 }

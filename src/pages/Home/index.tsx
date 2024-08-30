@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -9,15 +9,25 @@ import {
 
 import { CardPost } from "../../components/CardPost";
 import { GithubUser } from "../../@types/githubUser";
+import { Issue } from "../../@types/githubIssues";
+
 import { api } from "../../lib/axios";
 
 import styles from "./index.module.css";
-import { Issue } from "../../@types/githubIssues";
 
 export function Home() {
   const [userData, setUserData] = useState<GithubUser>();
   const [posts, setPosts] = useState<Issue[]>([]);
-  // const [searchText, setSearchText] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("");
+
+  function handleSearchPosts(e: FormEvent) {
+    e.preventDefault()
+    fetchPosts(searchText)
+  }
+
+  function handleSearchPostTextChange(e: ChangeEvent<HTMLInputElement>) {
+    setSearchText(e.target.value)
+  }
 
   async function fetchUserData() {
     const response = await api.get("users/aledosreis");
@@ -25,10 +35,11 @@ export function Home() {
   }
 
   async function fetchPosts(search?: string) {
+    console.log(search)
     const response = await api.get("search/issues", {
       params: {
         q: search
-          ? `${search}%20repo:aledosreis/github-blog label:post`
+          ? `${search} repo:aledosreis/github-blog label:post`
           : "repo:aledosreis/github-blog label:post",
       },
     });
@@ -71,31 +82,33 @@ export function Home() {
         </div>
       </div>
 
-      <div className={styles.homeContent}>
-        <div className={styles.pageHeader}>
-          <span>Publicações</span>
-          <span>{posts.length} publicações</span>
-        </div>
+      <div className={styles.pageHeader}>
+        <span>Publicações</span>
+        <span>{posts.length} publicações</span>
+      </div>
 
+      <form onSubmit={handleSearchPosts}>
         <input
           className={styles.searchInput}
           type="text"
           placeholder="Buscar conteúdo"
+          value={searchText}
+          onChange={handleSearchPostTextChange}
         />
+      </form>
 
-        <div className={styles.posts}>
-          {posts.map((post) => {
-            return (
-              <CardPost
-                key={post.number}
-                route={`/post/${post.number}`}
-                title={post.title}
-                body={post.body}
-                date={post.created_at}
-              />
-            );
-          })}
-        </div>
+      <div className={styles.posts}>
+        {posts.map((post) => {
+          return (
+            <CardPost
+              key={post.number}
+              route={`/post/${post.number}`}
+              title={post.title}
+              body={post.body}
+              date={post.created_at}
+            />
+          );
+        })}
       </div>
     </>
   );
