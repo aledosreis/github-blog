@@ -28,7 +28,7 @@ export function Post() {
 
   async function fetchPost() {
     const response = await api.get(
-      `repos/rocketseat-education/reactjs-github-blog-challenge/issues/${postId}`
+      `repos/aledosreis/github-blog/issues/${postId}`
     );
     setPost(response.data);
   }

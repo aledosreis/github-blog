@@ -28,8 +28,8 @@ export function Home() {
     const response = await api.get("search/issues", {
       params: {
         q: search
-          ? `${search}%20repo:rocketseat-education/reactjs-github-blog-challenge`
-          : "repo:rocketseat-education/reactjs-github-blog-challenge",
+          ? `${search}%20repo:aledosreis/github-blog`
+          : "repo:aledosreis/github-blog",
       },
     });
 
